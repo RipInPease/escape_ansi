@@ -1,14 +1,14 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+/// Commands and such for the cursor
+/// 
+pub mod cursor;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+use std::io::Write;
+use std::io::Result as IOResult;
+
+
+/// A command that can be written to a terminal
+/// 
+pub trait Command<W: Write> {
+    fn write_ansi(w: &mut W) -> IOResult<()>; 
 }

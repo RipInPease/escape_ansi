@@ -10,5 +10,5 @@ use std::io::Result as IOResult;
 /// A command that can be written to a terminal
 /// 
 pub trait Command<W: Write> {
-    fn write_ansi(w: &mut W) -> IOResult<()>; 
+    fn write_ansi(&self, w: &mut W) -> IOResult<()>; 
 }

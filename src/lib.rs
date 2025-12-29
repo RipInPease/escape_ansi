@@ -17,13 +17,18 @@ macro_rules! write {
 }
 
 
-/// Commands and such for the cursor
-/// 
-pub mod cursor;
-
-
 /// A command that can be written to a terminal
 /// 
 pub trait Command<W: Write> {
     fn write_ansi(&self, w: &mut W) -> IOResult<()>; 
 }
+
+
+/// Commands and such for the cursor
+/// 
+pub mod cursor;
+
+
+/// Commands and such for the terminal
+/// 
+pub mod terminal;
